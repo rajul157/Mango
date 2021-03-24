@@ -6,7 +6,7 @@ const request = require("request");
 const https = require("https");
 const app = express();
 
-app.listen(process.env.PORT || 3000, function() {
+app.listen(process.env.PORT , function() {
   console.log("Server is running on port 3000");
 });
 
@@ -39,10 +39,11 @@ app.post("/", function(req, res) {
  const url = "https://us16.api.mailchimp.com/3.0/lists/2f25892dcb";
  const options ={
    method : "POST",
-   auth : "rajul1:03c62197071634c4049206b4bec2d805-us16cdcd"
+   auth : "rajul2:03c62197071634c4049206b4bec2d805-us16"
  };
 
  const request = https.request(url, options , function(response){
+   console.log(response.statusCode);
    if(response.statusCode ===200){
    res.sendFile(__dirname + "/success.html");
  }else{
